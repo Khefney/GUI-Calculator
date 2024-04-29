@@ -223,6 +223,12 @@ public class Calculating extends javax.swing.JFrame {
 
             }
         });
+        absoluteValue.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                performOperation("abs");
+            }
+        });
     }
 
     private void performOperation(String operation) {
@@ -314,18 +320,8 @@ public class Calculating extends javax.swing.JFrame {
                 previousResult = Double.parseDouble(outputText) * 100;
                 break;
             case "one_n":
-                if (!input.getText().isEmpty()) {
-                    double number = Double.parseDouble(input.getText());
-                    if (number != 0) {
-                        double reciprocal = 1 / number;
-                        output.setText(Double.toString(reciprocal));
-                        input.setText("");
-                    } else {
-                        output.setText("Error: Cannot divide by zero");
-                    }
-                } else {
-                    output.setText("Input is empty");
-                }
+
+
                 break;
             case "√":
                 previousResult = Math.sqrt(Double.parseDouble(input.getText()));
@@ -335,6 +331,9 @@ public class Calculating extends javax.swing.JFrame {
                 value = -value;
                 input.setText(Double.toString(value));
                 output.setText(input.getText());
+                break;
+            case "abs":
+                previousResult = Math.abs(Double.parseDouble(input.getText()));
                 break;
         }
         output.setText(Double.toString(previousResult));
