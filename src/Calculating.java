@@ -134,7 +134,15 @@ public class Calculating extends javax.swing.JFrame {
         percent.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                performOperation("%");
+                if (!input.getText().isEmpty()) {
+                    double num = Double.parseDouble(input.getText());
+                    previousResult = num / 100;
+                    output.setText(Double.toString(previousResult));
+                    total = previousResult;
+                    input.setText(""); // Clear input field
+                } else {
+                    output.setText("Input is empty");
+                }
             }
         });
         EXITButton.addActionListener(new ActionListener() {
@@ -146,55 +154,117 @@ public class Calculating extends javax.swing.JFrame {
         square.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                performOperation("^");
+                double numToSquare = Double.parseDouble(input.getText());
+                previousResult = Math.pow(numToSquare, 2);
+                output.setText(Double.toString(previousResult));
+                total = previousResult;
             }
         });
         cubeRoot.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                performOperation("^^");
+                double numTopower = Double.parseDouble(input.getText());
+                previousResult = Math.pow(numTopower, 3);
+                output.setText(Double.toString(previousResult));
+                total = previousResult;
             }
         });
         sinButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                performOperation("sin");
+                if (!input.getText().isEmpty()) {
+                    double numSin = Double.parseDouble(input.getText());
+                    previousResult = Math.sin(numSin);
+                    output.setText(Double.toString(previousResult));
+                    total = previousResult;
+                    input.setText(""); // Clear input field
+                } else {
+                    output.setText("Input is empty");
+                }
             }
         });
         cosButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                performOperation("cos");
+                if (!input.getText().isEmpty()) {
+                    double numCos = Double.parseDouble(input.getText());
+                    previousResult = Math.cos(numCos);
+                    output.setText(Double.toString(previousResult));
+                    total = previousResult;
+                    input.setText(""); // Clear input field
+                } else {
+                    output.setText("Input is empty");
+                }
             }
         });
         tanButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                performOperation("tan");
+                if (!input.getText().isEmpty()) {
+                    double numTan = Double.parseDouble(input.getText());
+                    previousResult = Math.tan(numTan);
+                    output.setText(Double.toString(previousResult));
+                    total = previousResult;
+                    input.setText(""); // Clear input field
+                } else {
+                    output.setText("Input is empty");
+                }
             }
         });
         logButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                performOperation("log");
+                if (!input.getText().isEmpty()) {
+                    double numLog = Double.parseDouble(input.getText());
+                    previousResult = Math.log10(numLog);
+                    output.setText(Double.toString(previousResult));
+                    total = previousResult;
+                    input.setText(""); // Clear input field
+                } else {
+                    output.setText("Input is empty");
+                }
             }
         });
         sinhButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                performOperation("sinh");
+                if (!input.getText().isEmpty()) {
+                    double numSinH = Double.parseDouble(input.getText());
+                    previousResult = Math.sinh(numSinH);
+                    output.setText(Double.toString(previousResult));
+                    total = previousResult;
+                    input.setText(""); // Clear input field
+                } else {
+                    output.setText("Input is empty");
+                }
             }
         });
         coshButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                performOperation("cosh");
+                if (!input.getText().isEmpty()) {
+                    double numCosH = Double.parseDouble(input.getText());
+                    previousResult = Math.cosh(numCosH);
+                    output.setText(Double.toString(previousResult));
+                    total = previousResult;
+                    input.setText(""); // Clear input field
+                } else {
+                    output.setText("Input is empty");
+                }
             }
         });
         tanhButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                performOperation("tanh");
+                if (!input.getText().isEmpty()) {
+                    double numTanH = Double.parseDouble(input.getText());
+                    previousResult = Math.tanh(numTanH);
+                    output.setText(Double.toString(previousResult));
+                    total = previousResult;
+                    input.setText(""); // Clear input field
+                } else {
+                    output.setText("Input is empty");
+                }
             }
         });
         modButton.addActionListener(new ActionListener() {
@@ -206,27 +276,134 @@ public class Calculating extends javax.swing.JFrame {
         oneoverNButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                performOperation("one_n");
+                if (!input.getText().isEmpty()) {
+                    double denom = Double.parseDouble(input.getText());
+                    if (denom != 0) {
+                        previousResult = 1 / denom;
+                        output.setText(Double.toString(previousResult));
+                        total = previousResult;
+                        input.setText(""); // Clear input field
+                    } else {
+                        output.setText("Error: Division by zero");
+                    }
+                } else {
+                    output.setText("Input is empty");
+                }
 
             }
         });
         squareRoot.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                performOperation("√");
+                if (!input.getText().isEmpty()) {
+                    double numSqrt = Double.parseDouble(input.getText());
+                    previousResult = Math.sqrt(numSqrt);
+                    output.setText(Double.toString(previousResult));
+                    total = previousResult;
+                    input.setText("");
+                } else {
+                    output.setText("Input is empty");
+                }
             }
         });
         plusMinus.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                performOperation("±");
+                if (!input.getText().isEmpty()) {
+                    double value = Double.parseDouble(input.getText());
+                    value *= -1;
+                    input.setText(Double.toString(value));
+                    output.setText(input.getText());
+                }
 
             }
         });
         absoluteValue.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                performOperation("abs");
+                if (!input.getText().isEmpty()) {
+                    double num = Double.parseDouble(input.getText());
+                    previousResult = Math.abs(num);
+                    output.setText(Double.toString(previousResult));
+                    total = previousResult;
+                    input.setText(""); // Clear input field
+                } else {
+                    output.setText("Input is empty");
+                }
+            }
+        });
+        naturalLog.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!input.getText().isEmpty()) {
+                    double num = Double.parseDouble(input.getText());
+                    if (num > 0) {
+                        previousResult = Math.log(num);
+                        output.setText(Double.toString(previousResult));
+                        total = previousResult;
+                        input.setText(""); // Clear input field
+                    } else {
+                        output.setText("Error: Input must be greater than 0");
+                    }
+                } else {
+                    output.setText("Input is empty");
+                }
+            }
+        });
+        a10NButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!input.getText().isEmpty()) {
+                    double num = Double.parseDouble(input.getText());
+                    String notation = String.format("%.2e", num);
+                    previousResult = num;
+                    output.setText(notation);
+                    input.setText(""); // Clear input field
+                } else {
+                    output.setText("Input is empty");
+                }
+            }
+        });
+        atanButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!input.getText().isEmpty()) {
+                    double numTanA = Double.parseDouble(input.getText());
+                    previousResult = Math.atan(numTanA);
+                    output.setText(Double.toString(previousResult));
+                    total = previousResult;
+                    input.setText(""); // Clear input field
+                } else {
+                    output.setText("Input is empty");
+                }
+            }
+        });
+        acosButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!input.getText().isEmpty()) {
+                    double numCosA = Double.parseDouble(input.getText());
+                    previousResult = Math.acos(numCosA);
+                    output.setText(Double.toString(previousResult));
+                    total = previousResult;
+                    input.setText(""); // Clear input field
+                } else {
+                    output.setText("Input is empty");
+                }
+            }
+        });
+        asinButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!input.getText().isEmpty()) {
+                    double numSinA = Double.parseDouble(input.getText());
+                    previousResult = Math.asin(numSinA);
+                    output.setText(Double.toString(previousResult));
+                    total = previousResult;
+                    input.setText(""); // Clear input field
+                } else {
+                    output.setText("Input is empty");
+                }
             }
         });
     }
@@ -272,73 +449,10 @@ public class Calculating extends javax.swing.JFrame {
             case "%%":
                 previousResult = total % Double.parseDouble(input.getText());
                 break;
-            case "^":
-                double numToSquare = Double.parseDouble(input.getText());
-                previousResult = Math.pow(numToSquare, 2);
-                output.setText(Double.toString(previousResult));
-                total = previousResult;
-                return;
-            case "^^":
-                double numToCube = Double.parseDouble(input.getText());
-                previousResult = Math.pow(numToCube, 1.0 / 3.0);
-                output.setText(Double.toString(previousResult));
-                total = previousResult;
-                input.setText("");
-                break;
-            case "sin":
-                previousResult = Math.sin(Double.parseDouble(input.getText()));
-                break;
-            case "cos":
-                previousResult = Math.cos(Double.parseDouble(input.getText()));
-                break;
-            case "tan":
-                previousResult = Math.tan(Double.parseDouble(input.getText()));
-                break;
-            case "log":
-                previousResult = Math.log(Double.parseDouble(input.getText()));
-                break;
-            case "asin":
-                previousResult = Math.asin(Double.parseDouble(input.getText()));
-                break;
-            case "acos":
-                previousResult = Math.acos(Double.parseDouble(input.getText()));
-                break;
-            case "atan":
-                previousResult = Math.atan(Double.parseDouble(input.getText()));
-                break;
-            case "sinh":
-                previousResult = Math.sinh(Double.parseDouble(input.getText()));
-                break;
-            case "cosh":
-                previousResult = Math.cosh(Double.parseDouble(input.getText()));
-                break;
-            case "tanh":
-                previousResult = Math.tanh(Double.parseDouble(input.getText()));
-                break;
-            case "%":
-                String outputText = output.getText();
-                previousResult = Double.parseDouble(outputText) * 100;
-                break;
-            case "one_n":
-
-
-                break;
-            case "√":
-                previousResult = Math.sqrt(Double.parseDouble(input.getText()));
-                break;
-            case "±":
-                double value = Double.parseDouble(input.getText());
-                value = -value;
-                input.setText(Double.toString(value));
-                output.setText(input.getText());
-                break;
-            case "abs":
-                previousResult = Math.abs(Double.parseDouble(input.getText()));
-                break;
         }
         output.setText(Double.toString(previousResult));
-        input.setText("");
         total = previousResult;
+        input.setText("");
     }
 
     public static void main(String[] args) {
