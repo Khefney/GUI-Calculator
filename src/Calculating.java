@@ -1,8 +1,21 @@
+/*
+Author: Kirsten Hefney
+Class: COMP167.001
+Date: May 1st, 2024
+Description: This Java code defines a simple calculator GUI application using Swing.
+It consists of various components such as buttons for digits, arithmetic operations, trigonometric functions, and other mathematical operations.
+The calculator performs basic arithmetic calculations as well as advanced operations like square root, cube root, trigonometric functions, logarithms, and more.
+It utilizes event listeners to handle user interactions and updates the display accordingly. Overall,
+it provides a functional and interactive interface for performing mathematical calculations.
+ */
+
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
 public class Calculating extends javax.swing.JFrame {
+    // GUI components
 
     private double total = 0.0;
     private double previousResult = 0.0;
@@ -61,7 +74,7 @@ public class Calculating extends javax.swing.JFrame {
                 output.setText(input.getText());
             }
         };
-
+        // Assigning numberListener to digit buttons
         btn0.addActionListener(numberListener);
         btn1.addActionListener(numberListener);
         btn2.addActionListener(numberListener);
@@ -422,8 +435,6 @@ public class Calculating extends javax.swing.JFrame {
             output.setText("Input is empty");
         }
     }
-
-
 
 
     private void calculateResult() {
