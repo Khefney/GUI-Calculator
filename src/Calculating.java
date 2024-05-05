@@ -9,7 +9,6 @@ It utilizes event listeners to handle user interactions and updates the display 
 it provides a functional and interactive interface for performing mathematical calculations.
  */
 
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -66,6 +65,7 @@ public class Calculating extends javax.swing.JFrame {
     public Calculating() {
         MyCalculator.setPreferredSize(new Dimension(500,700));
 
+        // ActionListener for number buttons to handle digit input
         ActionListener numberListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -86,6 +86,7 @@ public class Calculating extends javax.swing.JFrame {
         btn8.addActionListener(numberListener);
         btn9.addActionListener(numberListener);
 
+        // ActionListener for addition operation
         plus.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -93,6 +94,7 @@ public class Calculating extends javax.swing.JFrame {
             }
         });
 
+        // ActionListener for subtraction operation
         minus.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -100,6 +102,7 @@ public class Calculating extends javax.swing.JFrame {
             }
         });
 
+        // ActionListener for multiplication operation
         multiply.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -107,6 +110,7 @@ public class Calculating extends javax.swing.JFrame {
             }
         });
 
+        // ActionListener for division operation
         divide.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -114,6 +118,7 @@ public class Calculating extends javax.swing.JFrame {
             }
         });
 
+        // ActionListener for equal operation to calculate result
         equall.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -124,6 +129,7 @@ public class Calculating extends javax.swing.JFrame {
             }
         });
 
+        // ActionListener for clear button to reset calculator
         CLEAR.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -135,6 +141,7 @@ public class Calculating extends javax.swing.JFrame {
             }
         });
 
+        // ActionListener for decimal button to handle decimal input
         decimal.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -144,6 +151,8 @@ public class Calculating extends javax.swing.JFrame {
                 }
             }
         });
+
+        // ActionListener for percentage button to calculate percentage
         percent.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -158,12 +167,16 @@ public class Calculating extends javax.swing.JFrame {
                 }
             }
         });
+
+        // ActionListener to exit the application
         EXITButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
             }
         });
+
+        // ActionListener to calculate square of a number
         square.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -173,6 +186,8 @@ public class Calculating extends javax.swing.JFrame {
                 total = previousResult;
             }
         });
+
+        // ActionListener to calculate cube root of a number
         cubeRoot.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -182,6 +197,8 @@ public class Calculating extends javax.swing.JFrame {
                 total = previousResult;
             }
         });
+
+        // ActionListener for sine function
         sinButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -196,6 +213,8 @@ public class Calculating extends javax.swing.JFrame {
                 }
             }
         });
+
+        // ActionListener for cosine function
         cosButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -204,12 +223,14 @@ public class Calculating extends javax.swing.JFrame {
                     previousResult = Math.cos(numCos);
                     output.setText(Double.toString(previousResult));
                     total = previousResult;
-                    input.setText(""); // Clear input field
+                    input.setText("");
                 } else {
                     output.setText("Input is empty");
                 }
             }
         });
+
+        // ActionListener for tangent function
         tanButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -218,12 +239,14 @@ public class Calculating extends javax.swing.JFrame {
                     previousResult = Math.tan(numTan);
                     output.setText(Double.toString(previousResult));
                     total = previousResult;
-                    input.setText(""); // Clear input field
+                    input.setText("");
                 } else {
                     output.setText("Input is empty");
                 }
             }
         });
+
+        // ActionListener for logarithm function
         logButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -238,6 +261,8 @@ public class Calculating extends javax.swing.JFrame {
                 }
             }
         });
+
+        // ActionListener for hyperbolic sine function
         sinhButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -252,6 +277,8 @@ public class Calculating extends javax.swing.JFrame {
                 }
             }
         });
+
+        // ActionListener for hyperbolic cosine function
         coshButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -266,6 +293,8 @@ public class Calculating extends javax.swing.JFrame {
                 }
             }
         });
+
+        // ActionListener for hyperbolic tangent function
         tanhButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -280,12 +309,16 @@ public class Calculating extends javax.swing.JFrame {
                 }
             }
         });
+
+        // ActionListener for modulo operation
         modButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 performOperation("%%");
             }
         });
+
+        // ActionListener to calculate reciprocal
         oneoverNButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -305,6 +338,8 @@ public class Calculating extends javax.swing.JFrame {
 
             }
         });
+
+        // ActionListener to calculate square root
         squareRoot.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -319,6 +354,8 @@ public class Calculating extends javax.swing.JFrame {
                 }
             }
         });
+
+        // ActionListener to toggle sign
         plusMinus.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -331,6 +368,8 @@ public class Calculating extends javax.swing.JFrame {
 
             }
         });
+
+        // ActionListener to calculate absolute value
         absoluteValue.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -345,6 +384,8 @@ public class Calculating extends javax.swing.JFrame {
                 }
             }
         });
+
+        // ActionListener to calculate natural logarithm
         naturalLog.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -363,20 +404,24 @@ public class Calculating extends javax.swing.JFrame {
                 }
             }
         });
+
+        // ActionListener to calculate power of 10
         a10NButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (!input.getText().isEmpty()) {
-                    double num = Double.parseDouble(input.getText());
-                    String notation = String.format("%.2e", num);
-                    previousResult = num;
-                    output.setText(notation);
-                    input.setText(""); // Clear input field
+                    double power = Double.parseDouble(input.getText());
+                    previousResult = Math.pow(10, power);
+                    output.setText(Double.toString(previousResult));
+                    total = previousResult;
+                    input.setText("");
                 } else {
                     output.setText("Input is empty");
                 }
             }
         });
+
+        // ActionListener to calculate arctangent
         atanButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -391,6 +436,8 @@ public class Calculating extends javax.swing.JFrame {
                 }
             }
         });
+
+        // ActionListener to calculate arccosine
         acosButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -405,6 +452,8 @@ public class Calculating extends javax.swing.JFrame {
                 }
             }
         });
+
+        // ActionListener to calculate arcsine
         asinButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -421,6 +470,7 @@ public class Calculating extends javax.swing.JFrame {
         });
     }
 
+    // Method to perform arithmetic operations
     private void performOperation(String operation) {
         if (!input.getText().isEmpty()) {
             if (!lastOperation.isEmpty()) {
@@ -436,7 +486,7 @@ public class Calculating extends javax.swing.JFrame {
         }
     }
 
-
+    // Method to calculate the result based on the selected operation
     private void calculateResult() {
         switch (lastOperation) {
             case "+":
@@ -466,6 +516,7 @@ public class Calculating extends javax.swing.JFrame {
         input.setText("");
     }
 
+    // Main method to make the panel visible
     public static void main(String[] args) {
         JFrame frame = new JFrame("Calculator");
         frame.setContentPane(new Calculating().MyCalculator);
@@ -473,6 +524,4 @@ public class Calculating extends javax.swing.JFrame {
         frame.pack();
         frame.setVisible(true);
     }
-
-
 }
